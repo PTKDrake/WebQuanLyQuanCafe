@@ -43,7 +43,44 @@
     </nav>
 </header>
 <div id="content" class="home">
-    
+    <div class="container">
+        <h3 class="heading">List<span>item</span></h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>In stock</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>John</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>1</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn-custom" onclick="add()">Add</button>
+    </div>
 </div>
 <footer>
     <div class="credit">
@@ -55,3 +92,12 @@
 </footer>
 </body>
 </html>
+
+<script>
+    function add(){
+        location.assign("Add.html");
+    }
+    function edit(){
+        location.assign("Edit.html");
+    }
+</script>
