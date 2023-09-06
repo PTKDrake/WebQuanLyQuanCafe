@@ -6,6 +6,7 @@
     <link rel="icon" href="resources/icon.png" type="image/gif" sizes="16x16">
     <link href="resources/css/style.css" rel="stylesheet">
     <link href="resources/css/bootstrap.css" rel="stylesheet">
+    <script src="resources/js/popper.js"></script>
     <script src="resources/js/bootstrap.js"></script>
 </head>
 <body>
@@ -27,6 +28,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Item
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="item_create.html">Create</a></li>
+                            <li><a class="dropdown-item active" href="#">List</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Page 1</a>
                     </li>
@@ -43,29 +54,22 @@
     </nav>
 </header>
 <div id="content" class="home">
-    <div class="menu">
-        <div class="box-container">
-            <div class="box">
-                <img src="" alt="">
-                <h3>Name</h3>
-                <div class="price"></div>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
+    <div class="container">
+        <h3 class="heading">List<span>item</span></h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>In stock</th>
+                <th>Description</th>
+                <th><a class="btn btn-primary" href="item_create.html">Add</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
-            <div class="box">
-                <img src="" alt="">
-                <h3>Name</h3>
-                <div class="price"></div>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="" alt="">
-                <h3>Name</h3>
-                <div class="price"></div>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
-        </div>
     </div>
 </div>
 <footer>
@@ -78,3 +82,13 @@
 </footer>
 </body>
 </html>
+
+<script>
+    function add() {
+        location.assign("Add.html");
+    }
+
+    function edit() {
+        location.assign("Edit.html");
+    }
+</script>

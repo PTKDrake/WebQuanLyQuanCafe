@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Coffee - Item Create</title>
     <link rel="icon" href="resources/icon.png" type="image/gif" sizes="16x16">
     <link href="resources/css/style.css" rel="stylesheet">
     <link href="resources/css/bootstrap.css" rel="stylesheet">
+    <script src="resources/js/popper.js"></script>
     <script src="resources/js/bootstrap.js"></script>
 </head>
 <body>
@@ -25,7 +26,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Item
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Create</a></li>
+                            <li><a class="dropdown-item" href="item_list.html">List</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Page 1</a>
@@ -44,42 +54,26 @@
 </header>
 <div id="content" class="home">
     <div class="container">
-        <h3 class="heading">List<span>item</span></h3>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>In stock</th>
-                <th>Description</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>John</td>
-                <td>1</td>
-                <td>1</td>
-                <td></td>
-                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>1</td>
-                <td>1</td>
-                <td></td>
-                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>1</td>
-                <td>1</td>
-                <td></td>
-                <td><button class="btn-custom" onclick="edit()">Edit</button> <button class="btn-custom">Remove</button></td>
-            </tr>
-            </tbody>
-        </table>
-        <button class="btn-custom" onclick="add()">Add</button>
+        <h3 class="heading">Item<span>Create</span></h3>
+        <form action="ADD.php" method="post">
+            <div class="form-group">
+                <select class="form-select box" aria-label="test">
+                    <option hidden>Select category</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input aria-label="" placeholder="Name" class="box" id="name">
+            </div>
+            <div class="form-group">
+                <input aria-label="" placeholder="Price" class="box" id="money">
+            </div>
+            <div class="form-group">
+                <input aria-label="" placeholder="In stock" class="box" id="in_stock">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-custom">Create item</button>
+            </div>
+        </form>
     </div>
 </div>
 <footer>
@@ -92,12 +86,3 @@
 </footer>
 </body>
 </html>
-
-<script>
-    function add(){
-        location.assign("Add.html");
-    }
-    function edit(){
-        location.assign("Edit.html");
-    }
-</script>
