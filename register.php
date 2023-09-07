@@ -1,8 +1,15 @@
+<?php
+include "auth.php";
+if($user != null){
+    header("Location: index.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Coffee - Register</title>
     <link rel="icon" href="resources/icon.png" type="image/gif" sizes="16x16">
     <link href="resources/css/style.css" rel="stylesheet">
     <link href="resources/css/bootstrap.css" rel="stylesheet">
@@ -15,7 +22,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <div id="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img alt="" src="resources/icon.png" width="30" height="30"/>
                 </a>
             </div>
@@ -27,26 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Item
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="item_create.html">Create</a></li>
-                            <li><a class="dropdown-item" href="item_list.html">List</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Page 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Page 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Page 3</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +45,7 @@
 <div id="content" class="home">
     <div class="container">
         <h3 class="heading">Register</h3>
-        <form method="post" action="register.php">
+        <form method="post" action="register.php" class="form">
             <div class="form-group">
                 <input aria-label="" placeholder="Username" class="box" id="username" name="username" required>
             </div>
@@ -65,7 +53,7 @@
                 <input aria-label="" placeholder="Password" class="box" id="password" type="password"
                        name="password" required>
             </div>
-            <a href="login.html">Had an account?</a>
+            <a href="login.php">Had an account?</a>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 include "Connection.php";
@@ -90,7 +78,7 @@
 </div>
 <footer>
     <div class="credit">
-        <a href="index.html">
+        <a href="index.php">
             <img alt="" class="f-logo" src="resources/icon.png" width="30" height="30"/><span
                     class="copy">Nhóm 4</span>
         </a>

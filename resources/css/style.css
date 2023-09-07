@@ -48,6 +48,7 @@ body{
     cursor: pointer;
     margin-top: 1rem;
     font-size: 1.7rem;
+    text-decoration-line: none;
 }
 
 .btn-custom:hover {
@@ -55,7 +56,7 @@ body{
     border: var(--border-hover);
 }
 
-form {
+.form {
     margin: 0 auto 2rem auto;
     max-width: 60rem;
     border-radius: var(--border-radius-hover);
@@ -63,7 +64,7 @@ form {
     border: var(--border);
 }
 
-form .box {
+.form .box {
     width: 100%;
     padding: 1rem 1.2rem;
     border-radius: .5rem;
@@ -75,13 +76,60 @@ form .box {
     margin: .7rem 0;
 }
 
-form .box:focus {
+.form .box:focus {
     border: var(--border-hover);
 }
 
-form textarea {
+.form textarea {
     height: 15rem;
     resize: none;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.box-container .box {
+    flex: 1 1 42rem;
+    padding: 2rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 6rem;
+}
+
+.box-container .box:hover {
+    border: var(--border-hover);
+    border-radius: var(--border-radius-hover);
+}
+
+.box-container .box img {
+    height: 8rem;
+    margin-left: -6rem;
+}
+
+.box-container .box .content h3 {
+    font-size: 2.2rem;
+    color: var(--main-color);
+    line-height: 1.8;
+}
+
+.box-container .box .content p {
+    font-size: 1.6rem;
+    color: var(--main-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.box-container .box .content span {
+    font-size: 2rem;
+    color: var(--main-color);
+    line-height: 1.8;
 }
 
 footer .credit {

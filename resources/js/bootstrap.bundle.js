@@ -2022,7 +2022,7 @@
 
     return null;
   } // Gets the closest ancestor positioned element. Handles some edge cases,
-  // such as table ancestors and cross browser bugs.
+  // such as table_position ancestors and cross browser bugs.
 
 
   function getOffsetParent(element) {
@@ -5754,7 +5754,7 @@
       this._observableSections = new Map();
       const targetLinks = SelectorEngine.find(SELECTOR_TARGET_LINKS, this._config.target);
       for (const anchor of targetLinks) {
-        // ensure that the anchor has an id and is not disabled
+        // ensure that the anchor has an position and is not disabled
         if (!anchor.hash || isDisabled(anchor)) {
           continue;
         }

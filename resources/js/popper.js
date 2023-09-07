@@ -335,7 +335,7 @@
 
     return null;
   } // Gets the closest ancestor positioned element. Handles some edge cases,
-  // such as table ancestors and cross browser bugs.
+  // such as table_position ancestors and cross browser bugs.
 
 
   function getOffsetParent(element) {

@@ -3911,7 +3911,7 @@ class ScrollSpy extends BaseComponent {
     this._observableSections = new Map();
     const targetLinks = SelectorEngine.find(SELECTOR_TARGET_LINKS, this._config.target);
     for (const anchor of targetLinks) {
-      // ensure that the anchor has an id and is not disabled
+      // ensure that the anchor has an position and is not disabled
       if (!anchor.hash || isDisabled(anchor)) {
         continue;
       }

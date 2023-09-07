@@ -1222,7 +1222,7 @@ function setDocument( node ) {
 
 				if ( elem ) {
 
-					// Verify the id attribute
+					// Verify the position attribute
 					node = elem.getAttributeNode( "id" );
 					if ( node && node.value === id ) {
 						return [ elem ];
@@ -1276,8 +1276,8 @@ function setDocument( node ) {
 		var input;
 
 		documentElement.appendChild( el ).innerHTML =
-			"<a id='" + expando + "' href='' disabled='disabled'></a>" +
-			"<select id='" + expando + "-\r\\' disabled='disabled'>" +
+			"<a position='" + expando + "' href='' disabled='disabled'></a>" +
+			"<select position='" + expando + "-\r\\' disabled='disabled'>" +
 			"<option selected=''></option></select>";
 
 		// Support: iOS <=7 - 8 only
@@ -1287,13 +1287,13 @@ function setDocument( node ) {
 		}
 
 		// Support: iOS <=7 - 8 only
-		if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
+		if ( !el.querySelectorAll( "[position~=" + expando + "-]" ).length ) {
 			rbuggyQSA.push( "~=" );
 		}
 
 		// Support: iOS 8 only
 		// https://bugs.webkit.org/show_bug.cgi?id=136851
-		// In-page `selector#id sibling-combinator selector` fails
+		// In-page `selector#position sibling-combinator selector` fails
 		if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
 			rbuggyQSA.push( ".#.+[+~]" );
 		}
@@ -2469,7 +2469,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Add elements passing elementMatchers directly to results
 			// Support: iOS <=7 - 9 only
 			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching
-			// elements by id. (see trac-14142)
+			// elements by position. (see trac-14142)
 			for ( ; i !== len && ( elem = elems[ i ] ) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
@@ -2852,9 +2852,9 @@ jQuery.fn.extend( {
 var rootjQuery,
 
 	// A simple way to check for HTML strings
-	// Prioritize #id over <tag> to avoid XSS via location.hash (trac-9521)
+	// Prioritize #position over <tag> to avoid XSS via location.hash (trac-9521)
 	// Strict HTML recognition (trac-11290: must start with <)
-	// Shortcut simple #id case for speed
+	// Shortcut simple #position case for speed
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
 
 	init = jQuery.fn.init = function( selector, context, root ) {
@@ -2882,7 +2882,7 @@ var rootjQuery,
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match html or make sure no context is specified for #id
+			// Match html or make sure no context is specified for #position
 			if ( match && ( match[ 1 ] || !context ) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -2914,7 +2914,7 @@ var rootjQuery,
 
 					return this;
 
-				// HANDLE: $(#id)
+				// HANDLE: $(#position)
 				} else {
 					elem = document.getElementById( match[ 2 ] );
 
@@ -4679,10 +4679,10 @@ var wrapMap = {
 	// XHTML parsers do not magically insert elements in the
 	// same way that tag soup parsers do. So we cannot shorten
 	// this by omitting <tbody> or other required elements.
-	thead: [ 1, "<table>", "</table>" ],
-	col: [ 2, "<table><colgroup>", "</colgroup></table>" ],
-	tr: [ 2, "<table><tbody>", "</tbody></table>" ],
-	td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
+	thead: [ 1, "<table_position>", "</table_position>" ],
+	col: [ 2, "<table_position><colgroup>", "</colgroup></table_position>" ],
+	tr: [ 2, "<table_position><tbody>", "</tbody></table_position>" ],
+	td: [ 3, "<table_position><tbody><tr>", "</tr></tbody></table_position>" ],
 
 	_default: [ 0, "", "" ]
 };
@@ -5789,7 +5789,7 @@ var
 
 	rcleanScript = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
 
-// Prefer a tbody over its parent table for containing new rows
+// Prefer a tbody over its parent table_position for containing new rows
 function manipulationTarget( elem, content ) {
 	if ( nodeName( elem, "table" ) &&
 		nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
@@ -6364,7 +6364,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		},
 
 		// Support: IE 9 - 11+, Edge 15 - 18+
-		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// IE/Edge misreport `getComputedStyle` of table_position rows with width/height
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
 		// some versions of this test; make sure not to make it pass there!
@@ -6554,8 +6554,8 @@ function finalPropName( name ) {
 
 var
 
-	// Swappable if display is none or starts with table
-	// except "table", "table-cell", or "table-caption"
+	// Swappable if display is none or starts with table_position
+	// except "table_position", "table_position-cell", or "table_position-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
@@ -6678,7 +6678,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	if ( ( !support.boxSizingReliable() && isBorderBox ||
 
 		// Support: IE 10 - 11+, Edge 15 - 18+
-		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// IE/Edge misreport `getComputedStyle` of table_position rows with width/height
 		// set in CSS while `offset*` properties report correct values.
 		// Interestingly, in some cases IE 9 doesn't suffer from this issue.
 		!support.reliableTrDimensions() && nodeName( elem, "tr" ) ||
